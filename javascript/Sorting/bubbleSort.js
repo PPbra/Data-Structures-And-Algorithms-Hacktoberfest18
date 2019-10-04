@@ -1,14 +1,11 @@
-function bubbleSort(values) {
-  for (let i = values.length - 1; i >= 0; i--) {
-    for(var j = 1; j <= i; j++) {
-      if(values[j - 1] > values[j]) {
-           let temporary = values[j - 1];
-           values[j - 1] = values[j];
-           values[j] = temporary;
+function bubbleSort() {
+    var numElements = this.dataStore.length;
+    var temp;
+    for (var outer = numElements; outer >= 2; --outer) {
+        for (var inner = 0; inner <= outer-1; ++inner) {
+            if (this.dataStore[inner] > this.dataStore[inner+1]) {
+                swap(this.dataStore, inner, inner+1); }
         }
-     }
-   }
-   return values;
+        console.log(this.toString()); 
+    }
 }
-
-console.log(bubbleSort([93, 2, 82, 44, 210, 1, 39])); 
