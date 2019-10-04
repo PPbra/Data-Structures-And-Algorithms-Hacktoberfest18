@@ -1,33 +1,29 @@
-static void BubbleSort(int[] array)
-{
-	for(int i = 0; i < array.Length; i++)
-	{
-		for(int j = 0; j < array.Length - 1; j++)
-		{
-			if(array[j] > array[j + 1])
-			{
-				int temp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = temp;
-			}
-		}
-	}
-}
-
-static void Tryit()
-{
-	int[] array = { 2, 6, 9, 1, 10 };
-
-	for(int i = 0; i < array.Length; i++)
-	{
-		Console.Write(array[i] + " ");
-	}
-
-	Console.WriteLine();
-	BubbleSort(array);
-
-	for(int i = 0; i < array.Length; i++)
-	{
-		Console.Write(array[i] + " ");
-	}
+using System; 
+public class Bubble_Sort  
+{  
+   public static void Main(string[] args)
+         { 
+            int[] a = { 3, 0, 2, 5, -1, 4, 1 }; 
+			int t; 
+			Console.WriteLine("Original array :");
+            foreach (int aa in a)                       
+            Console.Write(aa + " ");                     
+            for (int p = 0; p <= a.Length - 2; p++)
+            {
+                for (int i = 0; i <= a.Length - 2; i++)
+                {
+                    if (a[i] > a[i + 1])
+                    {
+                        t = a[i + 1];
+                        a[i + 1] = a[i];
+                        a[i] = t;
+                    }
+                } 
+            }
+            Console.WriteLine("\n"+"Sorted array :");
+            foreach (int aa in a)                       
+            Console.Write(aa + " ");
+			Console.Write("\n"); 
+            
+        }
 }
