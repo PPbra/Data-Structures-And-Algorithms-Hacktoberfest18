@@ -1,14 +1,16 @@
-function binarySearch(arr, el){
-    var beg = 0;
-    var end = arr.length - 1;
-    while(end >= beg){
-        var mid = Math.floor((end + beg) / 2);
-        if(arr[mid] === el) return mid;
-        else if(arr[mid] < el) beg = mid + 1;
-        else end = mid - 1;
+function binarySearch(ar, el, compare_fn) {
+    var m = 0;
+    var n = ar.length - 1;
+    while (m <= n) {
+        var k = (n + m) >> 1;
+        var cmp = compare_fn(el, ar[k]);
+        if (cmp > 0) {
+            m = k + 1;
+        } else if(cmp < 0) {
+            n = k - 1;
+        } else {
+            return k;
+        }
     }
-    return -1;
+    return -m - 1;
 }
-
-var sortedArray = [2,3,5,6,7,8,10,20,28,30,49,56,67,80];
-console.log("Pos of 10: " + binarySearch(sortedArray, 10));
